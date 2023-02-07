@@ -24,7 +24,7 @@ const App: React.FC = () => {
       surCharge = 10 - cartValue;
     }
 
-    //number is rounded to two decimal places using the toPrecision method
+    //number that is rounded to two decimal places using the toPrecision method
     surCharge = Number(parseFloat(surCharge.toString()).toPrecision(2));
 
     const distanceFee =
