@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState }from 'react';
 import { useForm } from "react-hook-form";
 import { FormData } from '../App';
 
@@ -8,6 +8,18 @@ interface Props {
 
 const Form: React.FC<Props> = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm<FormData>();
+  
+  const [value, setValue] = useState('');
+
+  // Handle changes in the input value
+  const handleChange = (event:any) => {
+    let newValue = event.target.value;
+    // Use a regular expression to test if the input is a valid float number
+    if (/^-?\d*\.?\d*$/.test(newValue)) {
+      // Update the component state with the formatted input value
+      setValue(newValue);
+    }
+  };
 
   return ( 
         <form className="form-container" onSubmit={handleSubmit(data => onSubmit(data))}>
@@ -17,6 +29,9 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
               {...register("cartValue")}
               className="form-input"
               type="text"
+              value={value}
+              onChange={handleChange}
+              required
               placeholder="€"
               id="cartValue"
             />
@@ -27,6 +42,8 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
               {...register("distance")}
               className="form-input"
               type="number"
+              pattern="[0-9]*"
+              required
               placeholder="m"
               id="distance"
             />
@@ -37,6 +54,7 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
               {...register("amount")}
               className="form-input"
               type="number"
+              required
               placeholder="0"
               id="amount"
             />

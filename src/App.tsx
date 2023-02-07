@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Form from './Component/Form';
 
 export interface FormData {
-  cartValue: number; // float
-  distance: number; // integer
-  amount: number; // integer
-  date: Date; // date + time
+  cartValue: number; 
+  distance: number; 
+  amount: number; 
+  date: Date; 
 }
 
 const App: React.FC = () => {
@@ -23,6 +23,8 @@ const App: React.FC = () => {
     if (cartValue > 0 && cartValue < 10) {
       surCharge = 10 - cartValue;
     }
+
+    //number is rounded to two decimal places using the toPrecision method
     surCharge = Number(parseFloat(surCharge.toString()).toPrecision(2));
 
     const distanceFee =
