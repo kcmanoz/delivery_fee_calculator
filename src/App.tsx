@@ -51,6 +51,7 @@ if (utcTime.getUTCDay() === 5) {
 
   // Check if the selected delivery time falls within rush hour
   if (rushHourStart <= selectedTimeInMinutes && selectedTimeInMinutes <= rushHourEnd) {
+   
     // If so, increase the delivery fee by 10%
     totalDeliveryFee *= 1.1;
   }
