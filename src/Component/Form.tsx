@@ -14,8 +14,10 @@ const Form: React.FC<Props> = ({ onSubmit }) => {
   // Handle changes in the input value
   const handleChange = (event:any) => {
     let newValue = event.target.value;
+    
     // Use a regular expression to test if the input is a valid float number
     if (/^-?\d*\.?\d*$/.test(newValue)) {
+     
       // Update the component state with the formatted input value
       setValue(newValue);
     }
