@@ -1,4 +1,4 @@
-## A simple delivery fee calculator web app using React and TypeScript.
+## A simple delivery fee calculator web app using React and TypeScript
 
 
 Rules for calculating a delivery fee
